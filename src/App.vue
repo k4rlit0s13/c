@@ -7,6 +7,7 @@
       <button @click="calcularSuma">➕ Sumar Números</button>
       <button @click="buscarValor">🔎 Buscar Valor</button>
       <button @click="encontrarPosicion">📍 Encontrar Posición</button>
+      <button @click="verificarSamYFrodo">🧑‍🌾 Sam y Frodo</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -76,6 +77,16 @@ export default {
       this.resultado = indice !== -1
         ? `El valor ${valorBuscado} está en la posición ${indice} 🔍`
         : `El valor ${valorBuscado} NO se encontró 🚫`;
+    },
+    
+    // Ejercicio 6: Verificar si Sam y Frodo están juntos
+    verificarSamYFrodo() {
+      let nombres = prompt("Ingrese nombres separados por espacios:").split(" ");
+      let samIndex = nombres.indexOf('Sam');
+      let frodoIndex = nombres.indexOf('Frodo');
+      this.resultado = Math.abs(samIndex - frodoIndex) === 1
+        ? "¡Sam y Frodo están juntos! 🌈"
+        : "¡Sam y Frodo están separados! 😱";
     },
     
   }
