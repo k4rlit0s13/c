@@ -8,6 +8,7 @@
       <button @click="buscarValor">🔎 Buscar Valor</button>
       <button @click="encontrarPosicion">📍 Encontrar Posición</button>
       <button @click="verificarSamYFrodo">🧑‍🌾 Sam y Frodo</button>
+      <button @click="contarDelicias">🍏 Contar Delicias</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -87,6 +88,15 @@ export default {
       this.resultado = Math.abs(samIndex - frodoIndex) === 1
         ? "¡Sam y Frodo están juntos! 🌈"
         : "¡Sam y Frodo están separados! 😱";
+    },
+    
+    // Ejercicio 7: Contar diferentes frutas
+    contarDelicias() {
+      let frutas = prompt("Ingrese frutas separadas por espacios (use 🍎 para manzana, 🍐 para pera, 🍑 para durazno):").split(" ");
+      let manzanas = frutas.filter(f => f === '🍎').length;
+      let peras = frutas.filter(f => f === '🍐').length;
+      let duraznos = frutas.filter(f => f === '🍑').length;
+      this.resultado = `Hay ${manzanas} 🍎, ${peras} 🍐 y ${duraznos} 🍑 en total.`;
     },
     
   }
