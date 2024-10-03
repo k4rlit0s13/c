@@ -5,6 +5,7 @@
       <button @click="saludarAmigos">👋 Saludar Amigos</button>
       <button @click="buscarNumeroMenor">🔍 Encontrar Número Mínimo</button>
       <button @click="calcularSuma">➕ Sumar Números</button>
+      <button @click="buscarValor">🔎 Buscar Valor</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -57,6 +58,16 @@ export default {
       this.resultado = `La suma total es: ${suma} 💰`;
     },
     
+    // Ejercicio 4: Buscar un valor en una lista
+    buscarValor() {
+      let valores = prompt("Ingrese valores separados por espacios:").split(" ");
+      let valorBuscado = prompt("Ingrese el valor a buscar:");
+      this.resultado = valores.includes(valorBuscado)
+        ? `El valor ${valorBuscado} está en la lista 📍`
+        : `El valor ${valorBuscado} NO se encuentra en la lista ❌`;
+    },
+    
+
   }
 };
 </script>
