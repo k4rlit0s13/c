@@ -10,6 +10,7 @@
       <button @click="verificarSamYFrodo">🧑‍🌾 Sam y Frodo</button>
       <button @click="contarDelicias">🍏 Contar Delicias</button>
       <button @click="comidaDeMonos">🍌 Comida para Monos</button>
+      <button @click="organizarAnimales">🐶🐱 Organizar Animales</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -109,6 +110,14 @@ export default {
       this.resultado = bananas >= monos * bananasPorMono
         ? "¡Hay suficientes bananas para los monos! 🍌😋"
         : "¡Oh no! ¡No hay suficientes bananas para los monos! 😭";
+    },
+    
+    // Ejercicio 9: Organizar perros y gatos
+    organizarAnimales() {
+      let animales = prompt("Ingrese perros (🐶) y gatos (🐱):").split("");
+      let perros = animales.filter(a => a === '🐶').join('');
+      let gatos = animales.filter(a => a === '🐱').join('');
+      this.resultado = `Resultado: ${perros} y ${gatos} están organizados. 🎉`;
     },
     
   }
