@@ -6,6 +6,7 @@
       <button @click="buscarNumeroMenor">🔍 Encontrar Número Mínimo</button>
       <button @click="calcularSuma">➕ Sumar Números</button>
       <button @click="buscarValor">🔎 Buscar Valor</button>
+      <button @click="encontrarPosicion">📍 Encontrar Posición</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -67,7 +68,16 @@ export default {
         : `El valor ${valorBuscado} NO se encuentra en la lista ❌`;
     },
     
-
+    // Ejercicio 5: Encontrar la posición de un valor
+    encontrarPosicion() {
+      let valores = prompt("Ingrese valores separados por espacios:").split(" ");
+      let valorBuscado = prompt("Ingrese el valor a buscar:");
+      let indice = valores.indexOf(valorBuscado);
+      this.resultado = indice !== -1
+        ? `El valor ${valorBuscado} está en la posición ${indice} 🔍`
+        : `El valor ${valorBuscado} NO se encontró 🚫`;
+    },
+    
   }
 };
 </script>
