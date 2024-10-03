@@ -4,6 +4,7 @@
     <div>
       <button @click="saludarAmigos">👋 Saludar Amigos</button>
       <button @click="buscarNumeroMenor">🔍 Encontrar Número Mínimo</button>
+      <button @click="calcularSuma">➕ Sumar Números</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -49,7 +50,13 @@ export default {
       this.resultado = `El número más pequeño es: ${numeroMenor} 🌟`;
     },
     
-
+    // Ejercicio 3: Sumar números
+    calcularSuma() {
+      let numeros = prompt("Ingrese números separados por espacios:").split(" ").map(Number);
+      let suma = numeros.reduce((acc, num) => acc + num, 0);
+      this.resultado = `La suma total es: ${suma} 💰`;
+    },
+    
   }
 };
 </script>
