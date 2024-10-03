@@ -3,6 +3,7 @@
     <h1>¡Diviértete con Vue!</h1>
     <div>
       <button @click="saludarAmigos">👋 Saludar Amigos</button>
+      <button @click="buscarNumeroMenor">🔍 Encontrar Número Mínimo</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -41,6 +42,14 @@ export default {
       this.resultado = amigos.map(amigo => `¡Hola ${amigo}! 🎉`).join(' ');
     },
     
-}
+    // Ejercicio 2: Encontrar el número mínimo
+    buscarNumeroMenor() {
+      let numeros = prompt("Ingrese números separados por espacios:").split(" ").map(Number);
+      let numeroMenor = Math.min(...numeros);
+      this.resultado = `El número más pequeño es: ${numeroMenor} 🌟`;
+    },
+    
+
+  }
 };
 </script>
