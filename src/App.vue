@@ -9,6 +9,7 @@
       <button @click="encontrarPosicion">📍 Encontrar Posición</button>
       <button @click="verificarSamYFrodo">🧑‍🌾 Sam y Frodo</button>
       <button @click="contarDelicias">🍏 Contar Delicias</button>
+      <button @click="comidaDeMonos">🍌 Comida para Monos</button>
     </div>
     <p v-if="resultado">{{ resultado }}</p>
   </div>
@@ -97,6 +98,17 @@ export default {
       let peras = frutas.filter(f => f === '🍐').length;
       let duraznos = frutas.filter(f => f === '🍑').length;
       this.resultado = `Hay ${manzanas} 🍎, ${peras} 🍐 y ${duraznos} 🍑 en total.`;
+    },
+    
+    // Ejercicio 8: Verificar comida suficiente para monos
+    comidaDeMonos() {
+      let elementos = prompt("Ingrese monos (🐵) y bananas (🍌):").split("");
+      let monos = elementos.filter(e => e === '🐵').length;
+      let bananas = elementos.filter(e => e === '🍌').length;
+      let bananasPorMono = prompt("¿Cuántas bananas come un mono?");
+      this.resultado = bananas >= monos * bananasPorMono
+        ? "¡Hay suficientes bananas para los monos! 🍌😋"
+        : "¡Oh no! ¡No hay suficientes bananas para los monos! 😭";
     },
     
   }
